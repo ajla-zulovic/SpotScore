@@ -1,0 +1,160 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+  }
+  .text {
+    padding: 10px;
+    width: 640px;
+  }
+  .rate {
+    padding: 20px;
+    font-size: 24px;
+    color: #FFA500; 
+  }
+  h3{
+    font-weight: bold;
+  }
+  p{
+    text-align: justify;
+  }
+  .rate-button {
+    padding: 5px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 140px;
+    margin-top: 2px;
+    margin-left: 380px;
+
+
+    background-color:#AD343E;
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+.rate-button:hover { 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+  }
+  
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  
+  }
+  
+  .popup-body {
+    margin-top: 20px;
+    text-align: center;
+    
+  }
+  
+  .popup-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .popup-header p{
+    margin: 30px auto 0 auto;
+  }
+  
+  .totalReview{
+    margin-left: 450px;
+    font-size: larger;
+    font-weight: bolder;
+  }
+  .totalButton{
+    display: flex;
+
+  }
+
+  /*------DIO ZA KOMENTARE-----*/
+  /* offer-details.component.css */
+
+.comments-section {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 50px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.add-comment {
+  margin-top: 20px;
+}
+
+.add-comment textarea {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+  border: none;
+}
+
+.add-comment button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.add-comment button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+/*----KRAJ KOMENTARA ------------------*/

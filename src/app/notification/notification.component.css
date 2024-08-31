@@ -1,0 +1,31 @@
+.alert {
+    padding: 20px;
+    background-color: #82a2bb; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+  }
+  
+  .closebtn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+  
+

@@ -1,0 +1,41 @@
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+  }
+ .navbar{
+  margin-left: -50px;
+ }
+  .navbar a {
+    color: #334854;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .logo{
+    margin-left: 50px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin: 0 25px;
+  }
+  
+  button {
+    margin-right: 50px;
+    background-color: #334854;
+    color: #ffff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 80px;
+    cursor: pointer;
+  }
+
+

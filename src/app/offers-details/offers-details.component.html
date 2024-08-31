@@ -1,0 +1,54 @@
+<div class="container">
+  <h3>Soneva Fushi</h3>
+  <div class="image">
+    <img src="assets/hotel2.jpg" alt="Slika hotela" />
+  </div>
+
+  <div class="text">
+    <p>
+      The Blue Lagoon Restaurant offers a unique dining experience with a
+      stunning view of the ocean. Renowned for its fresh seafood and innovative
+      dishes, it provides a perfect blend of taste and ambiance. Whether you're
+      enjoying a romantic dinner or a family outing, the Blue Lagoon promises a
+      memorable culinary journey.
+    </p>
+  </div>
+</div>
+<div class="totalButton">
+  <div class="totalReview">Review {{ userRating }}</div>
+  <button (click)="openPopup()" class="rate-button">Rate</button>
+</div>
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-content">
+    <div class="popup-header">
+      <p>We are looking forward to your review!</p>
+      <button (click)="closePopup()" class="close-button">&times;</button>
+    </div>
+    <div class="popup-body">
+      <app-stars [(rating)]="userRating"></app-stars>
+    </div>
+    <div class="popup-footer">
+      <button (click)="submitRating()" class="submit-button">Submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- offer-details.component.html -->
+<div class="comments-section">
+  <h3>Komentari</h3>
+
+  <!-- Prikaz postojećih komentara -->
+  <div *ngFor="" class="comment">
+    <p></p>
+    <small></small>
+    <!-- Pretpostavlja se da je userName dostupno -->
+  </div>
+
+  <!-- Forma za dodavanje novog komentara -->
+  <div class="add-comment">
+    <h4>Ostavite komentar</h4>
+    <textarea placeholder="Unesite svoj komentar ovde..."></textarea>
+    <button>Dodaj komentar</button>
+    <p class="error"></p>
+  </div>
+</div>

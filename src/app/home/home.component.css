@@ -1,0 +1,125 @@
+.div-text{
+    text-align: center;
+    color: #334854;
+    font-size: 120%;
+    margin-top: 50px;
+}
+
+/*filtracija*/
+.navbar-new a {
+    color: #334854;
+    text-decoration: none;
+
+  }
+  .navbar-new li :hover {
+    border-bottom: 2px solid #ffff;
+  }
+  .navbar-new li{
+    display: inline-block;
+    margin-right: 30px;
+  }
+  .navbar-new{
+    text-align: center;
+    margin-top: 80px;
+  }
+
+
+  /*Search tekst i button */
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  #searchInput {
+    padding: 15px;
+    width: 37%;
+    border-radius: 20px;
+    border: none;
+  }
+
+  button {
+    padding: 8px;
+    width:80px ;
+    background-color: #3BC14A;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    left: -85px;
+    top: 7px;
+  }
+
+  input{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+  .filter-container{
+    margin-left: 50px;
+    margin-top: 80px;
+    color: #334854;
+
+}
+ h2{
+    margin-left: 20px;
+}
+
+/*za filtere restaurants hotel .. */
+
+
+.navbar-new ul li a.acTivee {
+  font-weight: bold;
+  color: #334854; /* boja aktivnog linka */
+}
+
+
+
+  /*OFFER*/
+#section-offers {
+    background-color: #f5f5f583;
+    color: #000000;
+    padding: 30px 0;
+    width: 90%; 
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.offer {
+    flex: 0 0 calc(30% - 20px);
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 3px 3px 5px 0px rgba(171, 171, 171, 1);
+    margin-bottom: 30px;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.offer img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+}
+
+.offer-details {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.offer-name {
+    font-weight: bold;
+}
+
+.offer-rating {
+    color: #666;
+}
+
+.offer:hover {
+    transform: scale(1.05);
+}
+

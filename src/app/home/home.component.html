@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.component.css" />
+    <title>Your Page Title</title>
+  </head>
+
+  <body>
+    <app-notification></app-notification>
+    <div class="div-text">
+      <h1>Looking for?</h1>
+    </div>
+
+    <div class="navbar-new">
+      <ul>
+        <li>
+          <a
+            href="#"
+            [ngClass]="{ acTivee: selectedCategory === 'Restaurants' }"
+            (click)="selectCategory('Restaurants')"
+            >Restaurants</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            [ngClass]="{ acTivee: selectedCategory === 'Hotels' }"
+            (click)="selectCategory('Hotels')"
+            >Hotels</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            [ngClass]="{ acTivee: selectedCategory === 'Movies' }"
+            (click)="selectCategory('Movies')"
+            >Movies</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            [ngClass]="{ acTivee: selectedCategory === 'Books' }"
+            (click)="selectCategory('Books')"
+            >Books</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Prikazivanje usluga na osnovu odabrane kategorije -->
+    <div *ngIf="selectedCategory === 'Restaurants'">
+      <!-- Ovdje prikaži restorane -->
+    </div>
+    <div *ngIf="selectedCategory === 'Hotels'">
+      <!-- Ovdje prikaži hotele -->
+    </div>
+    <div *ngIf="selectedCategory === 'Movies'">
+      <!-- Ovdje prikaži filmove -->
+    </div>
+    <div *ngIf="selectedCategory === 'Books'">
+      <!-- Ovdje prikaži knjige -->
+    </div>
+
+    <!-- SEARCH PART -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Looking for restaurants, hotels ... "
+      />
+      <button>Search</button>
+    </div>
+
+    <div class="filter-container">
+      <h2>{{ selectedOption }} of {{ selectedCategory }}</h2>
+      <input
+        type="radio"
+        name="filter"
+        value="All"
+        [(ngModel)]="selectedOption"
+      />
+      <span>All</span>
+      <input
+        type="radio"
+        name="filter"
+        value="Latest"
+        [(ngModel)]="selectedOption"
+      />
+      <span>Latest</span>
+      <input
+        type="radio"
+        name="filter"
+        value="Most reviewed"
+        [(ngModel)]="selectedOption"
+      />
+      <span>Most reviewed</span>
+    </div>
+
+    <section id="section-offers" class="offers-offers">
+      <div
+        *ngFor="let o of offers"
+        class="offer"
+        [routerLink]="['/Offers', o.id]"
+      >
+        <img [src]="o.img" alt="Offer Image" />
+        <div class="offer-details">
+          <div class="offer-name">{{ o.name }}</div>
+          <!-- <div class="offer-rating">{{}}</div> -->
+          <!-- <app-stars></app-stars> -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

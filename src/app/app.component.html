@@ -1,0 +1,25 @@
+<div class="header-container">
+  <div class="logo">
+    <img [src]="source" height="100" width="120" />
+  </div>
+  <div class="navbar">
+    <ul>
+      <li [routerLinkActive]="'active'"><a routerLink="/Home">Home</a></li>
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/About">About us </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/Privacy">Privacy</a>
+      </li>
+    </ul>
+  </div>
+  <div class="login-button">
+    <button routerLink="/Login">Log in</button>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>
