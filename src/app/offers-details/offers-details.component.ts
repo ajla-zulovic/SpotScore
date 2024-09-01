@@ -17,6 +17,7 @@ export class OffersDetailsComponent {
     // Dohvati ID ponude iz rute
     this.offerId = +this.route.snapshot.paramMap.get('id');
     this.offerDetails = this.route.snapshot?.data?.['offerDetails'];
+    this.offerDetails = history.state.offerDetails;
   }
   showPopup: boolean = false;
   userRating: number = 4.5;

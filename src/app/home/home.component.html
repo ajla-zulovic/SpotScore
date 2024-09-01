@@ -19,7 +19,7 @@
           <a
             href="#"
             [ngClass]="{ acTivee: selectedCategory === 'Restaurants' }"
-            (click)="selectCategory('Restaurants')"
+            (click)="selectCategory('Restaurants', $event)"
             >Restaurants</a
           >
         </li>
@@ -27,7 +27,7 @@
           <a
             href="#"
             [ngClass]="{ acTivee: selectedCategory === 'Hotels' }"
-            (click)="selectCategory('Hotels')"
+            (click)="selectCategory('Hotels', $event)"
             >Hotels</a
           >
         </li>
@@ -35,7 +35,7 @@
           <a
             href="#"
             [ngClass]="{ acTivee: selectedCategory === 'Movies' }"
-            (click)="selectCategory('Movies')"
+            (click)="selectCategory('Movies', $event)"
             >Movies</a
           >
         </li>
@@ -43,25 +43,11 @@
           <a
             href="#"
             [ngClass]="{ acTivee: selectedCategory === 'Books' }"
-            (click)="selectCategory('Books')"
+            (click)="selectCategory('Books', $event)"
             >Books</a
           >
         </li>
       </ul>
-    </div>
-
-    <!-- Prikazivanje usluga na osnovu odabrane kategorije -->
-    <div *ngIf="selectedCategory === 'Restaurants'">
-      <!-- Ovdje prikaži restorane -->
-    </div>
-    <div *ngIf="selectedCategory === 'Hotels'">
-      <!-- Ovdje prikaži hotele -->
-    </div>
-    <div *ngIf="selectedCategory === 'Movies'">
-      <!-- Ovdje prikaži filmove -->
-    </div>
-    <div *ngIf="selectedCategory === 'Books'">
-      <!-- Ovdje prikaži knjige -->
     </div>
 
     <!-- SEARCH PART -->
@@ -99,19 +85,19 @@
       <span>Most reviewed</span>
     </div>
 
-    <section id="section-offers" class="offers-offers">
-      <div
-        *ngFor="let o of offers"
-        class="offer"
-        [routerLink]="['/Offers', o.id]"
-      >
-        <img [src]="o.img" alt="Offer Image" />
-        <div class="offer-details">
-          <div class="offer-name">{{ o.name }}</div>
-          <!-- <div class="offer-rating">{{}}</div> -->
-          <!-- <app-stars></app-stars> -->
+    <div *ngIf="selectedCategory">
+      <section id="section-offers" class="offers-offers">
+        <div
+          *ngFor="let o of filterOffers()"
+          class="offer"
+          [routerLink]="['/Offers', o.id]"
+        >
+          <img [src]="o.img" alt="Offer Image" />
+          <div class="offer-details">
+            <div class="offer-name">{{ o.name }}</div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
 </html>

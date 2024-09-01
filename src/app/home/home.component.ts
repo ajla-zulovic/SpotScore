@@ -32,7 +32,7 @@ export class HomeComponent {
     {  
       id:4,
       name:'Four Seasons Firenze',
-      img:'assets/hotel1.jpg',
+      img:'assets/newHotel2.jpg',
       rating:'stars',
       category:'Hotels'
     },
@@ -91,22 +91,118 @@ export class HomeComponent {
       img:'assets/america.jpg',
       rating:'stars',
       category:'Movies'
-    }
+    },
+    {  
+      id:13,
+      name:'Lovely',
+      img:'assets/rest1.jpg',
+      rating:'stars',
+      category:'Restaurants'
+    },
+    {  
+      id:14,
+      name:'Honeymoon',
+      img:'assets/rest2.jpg',
+      rating:'stars',
+      category:'Restaurants'
+    },
+    {  
+      id:15,
+      name:'Ralahuv',
+      img:'assets/rest3.jpg',
+      rating:'stars',
+      category:'Restaurants'
+    },
+    {  
+      id:16,
+      name:'Hiulak',
+      img:'assets/hoot1.jpg',
+      rating:'stars',
+      category:'Hotels'
+    },
+    {  
+      id:17,
+      name:'Onolamtiko',
+      img:'assets/hot2.jpeg',
+      rating:'stars',
+      category:'Hotels'
+    },
+    {  
+      id:18,
+      name:'Lacholiro',
+      img:'assets/hotel3.jpg',
+      rating:'stars',
+      category:'Hotels'
+    },
+    {  
+      id:19,
+      name:'Avatar2',
+      img:'assets/movie2.jpg',
+      rating:'stars',
+      category:'Movies'
+    },
+    {  
+      id:20,
+      name:'Drag me to Hell',
+      img:'assets/movie3.jpg',
+      rating:'stars',
+      category:'Movies'
+    },
+    {  
+      id:21,
+      name:'The Nun',
+      img:'assets/nun.jpg',
+      rating:'stars',
+      category:'Movies'
+    },
+    {  
+      id:22,
+      name:'Twilight',
+      img:'assets/book1.jpg',
+      rating:'stars',
+      category:'Books'
+    },
+    {  
+      id:23,
+      name:'The Return of Great Powers',
+      img:'assets/book2.jpeg',
+      rating:'stars',
+      category:'Books'
+    },
+    {  
+      id:24,
+      name:'The Top of The World',
+      img:'assets/book3.jpg',
+      rating:'stars',
+      category:'Books'
+    },
+    
 
 ]
 
 selectedOption:string="All";
 selectedCategory: string = 'Restaurants';
 constructor(private router: Router) {}
-selectCategory(category: string): void {
+
+selectCategory(category: string, event: MouseEvent): void {
+  event.preventDefault();  
   this.selectedCategory = category;
+  console.log('Selected Category:', this.selectedCategory);
 }
+
+filterOffers() {
+  return this.offers.filter(offer => offer.category === this.selectedCategory);
+}
+
+
 showDetails(offerId: number) {
   this.router.navigate(['/Details', offerId], {
-    state: { offerDetails: this.offers.find(o => o.id === offerId) }
+    state: { offerDetails: this.offers.find(o => o.id === offerId)
+     }
   });
 
 }
+
 }
 
 
