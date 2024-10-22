@@ -1,3 +1,4 @@
+
 .div-text{
     text-align: center;
     color: #334854;
@@ -67,15 +68,11 @@
     margin-left: 20px;
 }
 
-/*za filtere restaurants hotel .. */
-
 
 .navbar-new ul li a.acTivee {
   font-weight: bold;
   color: #334854; /* boja aktivnog linka */
 }
-
-
 
   /*OFFER*/
 #section-offers {
