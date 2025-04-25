@@ -1,0 +1,107 @@
+
+
+  /*novi dio zahtjeva*/
+  .notification-card {
+    width: 760px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: red;
+    margin-left: 5px;
+}
+
+.notification-message {
+    color: #555;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.username{
+    margin-left: 45px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover;  
+    border: 2px solid #ddd; 
+  }
+  
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .filter-buttons button {
+    padding: 8px 12px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+  
+  .filter-buttons button.active {
+    background: #007bff;
+    color: white;
+
+  }
+  
+
+
+  /*scroll za zahtjeve*/
+  .requests-container {
+    max-height: 800px; 
+    overflow-y: auto;  
+    border: 1px solid #ccc; 
+    border: none;
+    padding: 10px;
+    background: #fff; 
+    width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .notification-reviewed{
+    color: #334854;
+  }
+
+
+  .read-button {
+    background-color: #334854; 
+    color: white; 
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .read-button:hover {
+    background-color: #2a3a4b; 
+    transform: scale(1.05); 
+  }

@@ -1,0 +1,12 @@
+<div class="rating-stars">
+  <ng-container *ngFor="let star of stars; let i = index">
+    <span
+      class="star"
+      [ngClass]="getStarsClass(i + 1)"
+      (click)="rate(i + 1)"
+      [style.cursor]="disabled ? 'not-allowed' : 'pointer'"
+    >
+      ★
+    </span>
+  </ng-container>
+</div>

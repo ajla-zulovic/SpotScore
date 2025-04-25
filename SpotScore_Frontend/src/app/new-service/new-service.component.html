@@ -1,0 +1,153 @@
+<div class="service-form-container">
+  <h2>Add New Service</h2>
+  <form [formGroup]="serviceForm" (ngSubmit)="submitService()">
+    <div class="form-group">
+      <label>Service Name</label>
+      <input formControlName="name" class="form-control" />
+      <div
+        *ngIf="formSubmitted && serviceForm.get('name')?.invalid"
+        class="error"
+      >
+        Service Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select
+        formControlName="categoryId"
+        class="form-control"
+        (change)="onCategoryChange($event)"
+      >
+        <option value="">Select category</option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="formSubmitted && serviceForm.get('categoryId')?.invalid"
+        class="error"
+      >
+        Category is required.
+      </div>
+    </div>
+
+    <div *ngIf="selectedCategory === 1 || selectedCategory === 4">
+      <div class="form-group">
+        <label>Genre</label>
+        <select formControlName="genreId" class="form-control">
+          <option value="">Select genre</option>
+          <option *ngFor="let genre of genres" [value]="genre.genreID">
+            {{ genre.genreName }}
+          </option>
+        </select>
+        <div *ngIf="formSubmitted && !serviceForm.value.genreId" class="error">
+          Genre is required.
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectedCategory === 2 || selectedCategory === 3">
+      <div class="form-group">
+        <label>City</label>
+        <select
+          formControlName="cityId"
+          class="form-control"
+          (change)="onCityChange($event)"
+        >
+          <option value="">Select city</option>
+          <option *ngFor="let city of cities" [value]="city.cityID">
+            {{ city.cityName }}
+          </option>
+        </select>
+        <div *ngIf="formSubmitted && !serviceForm.value.cityId" class="error">
+          City is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <input
+          #addressInput
+          formControlName="address"
+          class="form-control"
+          placeholder="Start typing address..."
+          autocomplete="off"
+        />
+        <div *ngIf="formSubmitted && !serviceForm.value.address" class="error">
+          Address is required.
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div #mapContainer class="map"></div>
+        <div *ngIf="!googleMapsLoaded" class="map-overlay">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="map-instructions">
+          <small class="text-muted"
+            >Click on map or drag marker to set location</small
+          >
+        </div>
+      </div>
+
+      <div class="coordinates-group">
+        <div class="form-group">
+          <label>Latitude</label>
+          <input
+            formControlName="latitude"
+            type="number"
+            class="form-control"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+          <label>Longitude</label>
+          <input
+            formControlName="longitude"
+            type="number"
+            class="form-control"
+            readonly
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="description" class="form-control"></textarea>
+      <div
+        *ngIf="formSubmitted && serviceForm.get('description')?.invalid"
+        class="error"
+      >
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Upload Image</label>
+      <input
+        type="file"
+        (change)="onFileChange($event)"
+        #fileInput
+        class="form-control"
+        accept="image/*"
+      />
+      <div *ngIf="formSubmitted && !selectedImage" class="error">
+        Image is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Service</button>
+  </form>
+
+  <app-message-popup
+    *ngIf="showMessagePopup"
+    [message]="popupMessage"
+    [isSuccess]="popupSuccess"
+    (closePopup)="showMessagePopup = false"
+  >
+  </app-message-popup>
+</div>

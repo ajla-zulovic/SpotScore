@@ -1,0 +1,74 @@
+<app-message-popup
+  *ngIf="showPopup"
+  [message]="popupMessage"
+  [isSuccess]="isSuccess"
+  (closePopup)="showPopup = false"
+>
+</app-message-popup>
+<div class="request-form-container">
+  <h4>{{ "NEW_SERVICE" | translate }}</h4>
+  <form (submit)="submitRequest()">
+    <div class="form-group">
+      <label for="service-name">{{ "SERVICE_NAME" | translate }}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="service-name"
+        [(ngModel)]="requestData.serviceName"
+        name="serviceName"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">{{ "CATEGORY" | translate }}</label>
+      <select
+        class="form-control"
+        id="category"
+        [(ngModel)]="requestData.categoryId"
+        name="categoryId"
+        required
+      >
+        <option value="" disabled selected>Select category</option>
+        <option
+          *ngFor="let category of categories"
+          [value]="category.categoryId"
+        >
+          {{ category.categoryName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">{{ "DESCRIPTION" | translate }}</label>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="4"
+        [(ngModel)]="requestData.description"
+        name="description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">{{ "IMAGE" | translate }} URL (optional)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="imageUrl"
+        [(ngModel)]="requestData.imageUrl"
+        name="imageUrl"
+        placeholder="Paste image URL here"
+      />
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn btn-send">
+        {{ "SEND_BUTTON" | translate }}
+      </button>
+      <button type="button" class="btn btn-cancel" (click)="resetForm()">
+        {{ "CANCLE_BUTTON" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

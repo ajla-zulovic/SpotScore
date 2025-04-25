@@ -1,0 +1,26 @@
+.city-form{
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+}
+
+.btn{
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.text-success{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.text-danger{
+    margin-top: 10px;
+    font-weight: bold;
+}
+

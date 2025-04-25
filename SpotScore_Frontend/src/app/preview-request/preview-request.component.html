@@ -1,0 +1,66 @@
+<div class="filter-buttons">
+  <button
+    (click)="filterRequests('All')"
+    [class.active]="selectedFilter === 'All'"
+  >
+    {{ "ALL" | translate }}
+  </button>
+  <button
+    (click)="filterRequests('Unread')"
+    [class.active]="selectedFilter === 'Unread'"
+  >
+    {{ "UNREAD" | translate }}
+  </button>
+  <button
+    (click)="filterRequests('Read')"
+    [class.active]="selectedFilter === 'Read'"
+  >
+    {{ "READ" | translate }}
+  </button>
+</div>
+
+<div class="requests-container">
+  <div *ngIf="requests.length === 0" class="no-requests">
+    {{ "NO_REQUEST" | translate }}
+  </div>
+  <div *ngFor="let request of requests" class="notification-card">
+    <div class="usernamePic">
+      <img
+        [src]="request.profilePhotoUrl"
+        alt="User Image"
+        class="user-photo"
+      />
+      <p class="username">{{ request.username }}</p>
+    </div>
+    <div class="notification-content">
+      <div class="notification-header">
+        <div class="notification-unread" *ngIf="request.status === 'Unread'">
+          {{ "NEW_REQUEST" | translate }}
+        </div>
+        <div
+          class="notification-reviewed"
+          *ngIf="request.status === 'Reviewed'"
+        >
+          {{ "REVIEWED_REQUEST" | translate }}
+        </div>
+      </div>
+      <div class="notification-message">
+        <strong>{{ "SERVICE_NAME" | translate }}</strong>
+        {{ request.serviceName }}<br />
+        <strong>{{ "CATEGORY" | translate }}:</strong> {{ request.categoryName
+        }}<br />
+        <strong>{{ "DESCRIPTION" | translate }}:</strong>
+        {{ request.description }}<br />
+        <strong>{{ "DATE_SENT" | translate }}:</strong>
+        {{ getFormattedDate(request.dateCreated) }}
+      </div>
+    </div>
+    <button
+      class="read-button"
+      *ngIf="request.status === 'Unread'"
+      (click)="markAsRead(request.requestId)"
+    >
+      {{ "MARK_READ" | translate }}
+    </button>
+  </div>
+</div>

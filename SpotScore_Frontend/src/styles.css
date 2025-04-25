@@ -1,0 +1,17 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: #EFECEA;
+    overflow-x: hidden;
+    /* cosmiclatte boja za background #FFF8E8 */
+}
+.Active{
+    border-bottom: 2px solid #ffff;
+    
+}

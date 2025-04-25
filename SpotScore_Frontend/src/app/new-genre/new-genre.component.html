@@ -1,0 +1,25 @@
+<app-message-popup
+  *ngIf="showPopup"
+  [message]="message"
+  [isSuccess]="isSuccess"
+  (closePopup)="closePopup()"
+></app-message-popup>
+
+<div class="main-div">
+  <form [formGroup]="genreForm" (ngSubmit)="submitGenre()">
+    <div class="form-group">
+      <label for="genreName">{{ "GENRE_NAME" | translate }}</label>
+      <input
+        id="genreName"
+        formControlName="genreName"
+        class="form-control"
+        placeholder="Enter genre name"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+      {{ "ADD_GENRE" | translate }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,110 @@
+<app-message-popup
+  *ngIf="showPopup"
+  [message]="popupMessage"
+  [isSuccess]="isSuccess"
+  (closePopup)="showPopup = false"
+>
+</app-message-popup>
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+<form>
+  <div class="profile-form-container">
+    <h4>{{ "USER_PROFILE" | translate }}</h4>
+    <div class="profile-form-group">
+      <label for="first-name">{{ "FIRST_NAME" | translate }}</label>
+      <input
+        type="text"
+        class="profile-form-control"
+        id="first-name"
+        [value]="userData.firstName"
+        disabled
+      />
+    </div>
+    <div class="profile-form-group">
+      <label for="last-name">{{ "LAST_NAME" | translate }}</label>
+      <input
+        type="text"
+        class="profile-form-control"
+        id="last-name"
+        [value]="userData.lastName"
+        disabled
+      />
+    </div>
+    <div class="profile-form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="profile-form-control"
+        id="email"
+        [value]="userData.email"
+        disabled
+      />
+    </div>
+    <div class="profile-form-group">
+      <label for="username">{{ "USERNAME" | translate }}</label>
+      <input
+        type="text"
+        class="profile-form-control"
+        id="username"
+        [value]="userData.username"
+        disabled
+      />
+    </div>
+
+    <div class="profile-picture-container">
+      <img
+        *ngIf="userData.profilePhoto"
+        [src]="userData.profilePhoto"
+        alt="Profile Photo"
+        class="profile-picture"
+      />
+      <img
+        *ngIf="!userData.profilePhoto"
+        src="assets/default.png"
+        alt="Default Profile Photo"
+        class="profile-picture"
+      />
+    </div>
+
+    <button type="button" class="edit-photo-btn" (click)="openModal()">
+      {{ "EDIT_BUTTON" | translate }}
+    </button>
+  </div>
+</form>
+<div
+  class="modal"
+  [class.show]="showModal"
+  [style.display]="showModal ? 'block' : 'none'"
+>
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h4>{{ "EDIT_PROFILE_PIC" | translate }}</h4>
+
+    <div class="image-preview">
+      <img *ngIf="previewImage" [src]="previewImage" class="profile-picture" />
+      <p class="selected-file-name">{{ imageMessage }}</p>
+    </div>
+
+    <input
+      type="file"
+      id="fileInput"
+      (change)="onFileSelected($event)"
+      hidden
+    />
+    <label for="fileInput" class="choose-photo-btn">{{
+      "CHOOSE_BUTTON" | translate
+    }}</label>
+
+    <div class="modal-buttons">
+      <button (click)="removeImage()" class="remove-btn">
+        {{ "REMOVE_BUTTON" | translate }}
+      </button>
+      <button
+        (click)="uploadProfilePhoto()"
+        [disabled]="!selectedFile"
+        class="upload-btn"
+      >
+        {{ "UPLOAD" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

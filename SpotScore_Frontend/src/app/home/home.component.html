@@ -1,0 +1,123 @@
+<div class="div-text">
+  <h1>{{ "LOOKING" | translate }}</h1>
+</div>
+<div class="navbar-new">
+  <ul>
+    <li>
+      <a
+        (click)="changeCategory('Restaurants')"
+        [ngClass]="{
+          active: selectedCategory === 'Restaurants' && !isSearching
+        }"
+      >
+        {{ "RESTAURANTS" | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="changeCategory('Hotels')"
+        [ngClass]="{ active: selectedCategory === 'Hotels' && !isSearching }"
+      >
+        {{ "HOTELS" | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="changeCategory('Movies')"
+        [ngClass]="{ active: selectedCategory === 'Movies' && !isSearching }"
+      >
+        {{ "MOVIES" | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="changeCategory('Books')"
+        [ngClass]="{ active: selectedCategory === 'Books' && !isSearching }"
+      >
+        {{ "BOOKS" | translate }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    [(ngModel)]="searchTerm"
+    placeholder="Looking for restaurants, hotels ..."
+    (input)="onSearch(searchTerm)"
+    (keydown.enter)="onEnter()"
+  />
+  <button (click)="searchServices()">{{ "SEARCH" | translate }}</button>
+</div>
+
+<div class="filter-container">
+  <h2 *ngIf="!isSearching">
+    {{ selectedOptionTranslated }} {{ selectedCategoryTranslated }}
+  </h2>
+  <h2 *ngIf="isSearching">{{ "SEARCH_RESULTS" | translate }}</h2>
+
+  <input
+    type="radio"
+    name="filter"
+    value="All"
+    (click)="changeFilter('All')"
+    [checked]="selectedOption === 'All'"
+  />
+  <span>{{ "ALL" | translate }}</span>
+  <input
+    type="radio"
+    name="filter"
+    value="Best"
+    (click)="changeFilter('Best')"
+    [checked]="selectedOption === 'Best'"
+  />
+  <span>{{ "BEST" | translate }}</span>
+  <input
+    type="radio"
+    name="filter"
+    value="Popular"
+    (click)="changeFilter('Popular')"
+    [checked]="selectedOption === 'Popular'"
+  />
+  <span>{{ "POPULAR" | translate }}</span>
+</div>
+
+<div class="offer-main">
+  <div *ngIf="services.length > 0; else noServices">
+    <section id="section-offers" class="offers-offers">
+      <div
+        *ngFor="let s of services"
+        class="offer"
+        (click)="viewDetails(s.serviceID)"
+      >
+        <img [src]="getImageUrl(s.picture)" alt="Offer Image" />
+
+        <div class="offer-details">
+          <div class="offer-name">{{ s.name }}</div>
+          <div class="offer-rating">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+              <span *ngIf="s.averageRating >= star" class="star full"
+                >&#9733;</span
+              >
+              <span
+                *ngIf="s.averageRating >= star - 0.5 && s.averageRating < star"
+                class="star half"
+                >&#9733;</span
+              >
+              <span *ngIf="s.averageRating < star - 0.5" class="star empty"
+                >&#9733;</span
+              >
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<ng-template #noServices>
+  <p *ngIf="isSearching">No results found for "{{ searchTerm }}".</p>
+  <p *ngIf="!isSearching">No services available in this category.</p>
+</ng-template>

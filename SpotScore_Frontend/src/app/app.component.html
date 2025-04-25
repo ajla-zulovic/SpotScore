@@ -1,0 +1,58 @@
+<div class="header-container">
+  <div class="logo">
+    <img [src]="source" height="100" width="120" routerLink="/Home" />
+    <!-- <canvas #logoCanvas routerLink="/Home"></canvas> -->
+  </div>
+
+  <div class="navbar">
+    <ul>
+      <li [routerLinkActive]="'Active'">
+        <a routerLink="/Home">{{ "HOME" | translate }}</a>
+      </li>
+      <li [routerLinkActive]="'Active'">
+        <a routerLink="/About">{{ "ABOUT_US" | translate }}</a>
+      </li>
+      <li [routerLinkActive]="'Active'">
+        <a routerLink="/Privacy">{{ "PRIVACY" | translate }}</a>
+      </li>
+      <li [routerLinkActive]="'Active'">
+        <a *ngIf="auth.isLoggedIn()" routerLink="/Dashboard">
+          {{ "DASHBOARD" | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="auth-section">
+    <div class="auth-buttons">
+      <button class="login-button" *ngIf="!isLoggedIn" routerLink="/Login">
+        {{ "LOGIN" | translate }}
+      </button>
+      <button class="logout-button" *ngIf="isLoggedIn" (click)="logOut()">
+        {{ "LOGOUT" | translate }}
+      </button>
+
+      <div class="language-switch">
+        <span [class.active]="selectedLanguage === 'en'">EN</span>
+        <label class="switch">
+          <input
+            type="checkbox"
+            (change)="switchLanguage($event)"
+            [checked]="selectedLanguage === 'bs'"
+          />
+          <span class="slider round"></span>
+        </label>
+        <span [class.active]="selectedLanguage === 'bs'">BS</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+  <ng-toast></ng-toast>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,40 @@
+<app-message-popup
+  *ngIf="showPopup"
+  [message]="message"
+  [isSuccess]="isSuccess"
+  (closePopup)="closePopup()"
+>
+</app-message-popup>
+
+<div class="city-form">
+  <form [formGroup]="cityForm" (ngSubmit)="submitCity()">
+    <div class="form-group">
+      <label for="cityName">{{ "CITY_NAME" | translate }}</label>
+      <input
+        id="cityName"
+        formControlName="cityName"
+        class="form-control"
+        placeholder="Enter city name"
+        required
+      />
+    </div>
+
+    <select
+      id="state"
+      formControlName="stateId"
+      class="form-control"
+      (change)="onStateChange($event)"
+    >
+      <option value="" disabled selected>
+        {{ "SELECT_STATE" | translate }}
+      </option>
+      <option *ngFor="let state of states" [value]="state.stateID">
+        {{ state.stateName }}
+      </option>
+    </select>
+
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+      {{ "ADD_CITY" | translate }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<app-message-popup
+  *ngIf="showPopup"
+  [message]="message"
+  [isSuccess]="isSuccess"
+  (closePopup)="closePopup()"
+>
+</app-message-popup>
+
+<div class="main-div">
+  <form [formGroup]="stateForm" (ngSubmit)="submitState()">
+    <div class="form-group">
+      <label for="stateName">{{ "STATE_NAME" | translate }}</label>
+      <input
+        id="stateName"
+        formControlName="stateName"
+        class="form-control"
+        placeholder="Enter state name"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+      {{ isLoading ? ("ADDING" | translate) : ("ADD_STATE" | translate) }}
+    </button>
+  </form>
+</div>

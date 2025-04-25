@@ -1,0 +1,424 @@
+<div class="mainn-div">
+  <header class="navbar">
+    <span class="navbar-title" href="#">
+      <h3>{{ "WELCOME" | translate }} {{ fullName }}</h3>
+    </span>
+    <button
+      class="navbar-toggler position-absolute d-md-none collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu"
+      aria-controls="sidebarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+  <div class="container-fluid">
+    <div class="row">
+      <ng-container *ngIf="role === 'Admin'">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky">
+            <ul class="nav flex-column nav-pills">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="profile-tab"
+                  data-toggle="pill"
+                  href="#profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-user align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  </svg>
+                  {{ "PROFILE" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="list-tab"
+                  data-toggle="pill"
+                  href="#list"
+                  role="tab"
+                  aria-controls="list"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-list align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                  </svg>
+                  {{ "LIST" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="requests-tab"
+                  data-toggle="pill"
+                  href="#requests"
+                  role="tab"
+                  aria-controls="requests"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-file align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                    ></path>
+                    <polyline points="13 2 13 9 20 9"></polyline>
+                  </svg>
+                  {{ "REQUESTS" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="new-service-tab"
+                  data-toggle="pill"
+                  href="#new-service"
+                  role="tab"
+                  aria-controls="new-service"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-plus align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  {{ "NEW_SERVICE" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="new-state-tab"
+                  data-toggle="pill"
+                  href="#new-state"
+                  role="tab"
+                  aria-controls="new-state"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-plus align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  {{ "NEW_STATE" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="new-city-tab"
+                  data-toggle="pill"
+                  href="#new-city"
+                  role="tab"
+                  aria-controls="new-city"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-plus align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  {{ "NEW_CITY" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="new-genre-tab"
+                  data-toggle="pill"
+                  href="#new-genre"
+                  role="tab"
+                  aria-controls="new-genre"
+                  aria-selected="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#334854"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-plus align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  {{ "NEW_GENRE" | translate }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </ng-container>
+
+      <main
+        *ngIf="role === 'Admin'"
+        class="col-md-5ms-sm-auto col-lg-10 px-md-1"
+      >
+        <div class="tab-content" id="v-pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <app-profile></app-profile>
+          </div>
+
+          <div
+            class="tab-pane fade"
+            id="list"
+            role="tabpanel"
+            aria-labelledby="list-tab"
+          >
+            <h4>{{ "USERS_LIST" | translate }}</h4>
+            <input class="input-search" type="text" placeholder="Search" />
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div
+            class="tab-pane fade"
+            id="requests"
+            role="tabpanel"
+            aria-labelledby="requests-tab"
+          >
+            <h4>{{ "REQUEST_CONTENT" | translate }}</h4>
+            <app-preview-request></app-preview-request>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="new-service"
+            role="tabpanel"
+            aria-labelledby="new-service-tab"
+          >
+            <h4 class="newService">{{ "ADD_NEW_SERVICE" | translate }}</h4>
+            <app-new-service></app-new-service>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="new-state"
+            role="tabpanel"
+            aria-labelledby="new-state-tab"
+          >
+            <h4 class="newState">{{ "ADD_NEW_STATE" | translate }}</h4>
+            <app-new-state></app-new-state>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="new-city"
+            role="tabpanel"
+            aria-labelledby="new-city-tab"
+          >
+            <h4 class="newCity">{{ "ADD_NEW_CITY" | translate }}</h4>
+            <app-new-city></app-new-city>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="new-genre"
+            role="tabpanel"
+            aria-labelledby="new-genre-tab"
+          >
+            <h4 class="newGenre">{{ "ADD_NEW_GENRE" | translate }}</h4>
+            <app-new-genre></app-new-genre>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- DASHBOARD USER-A -->
+  <div *ngIf="role === 'User'" class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="nav flex-column nav-pills">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="profile-tab"
+              data-toggle="pill"
+              href="#profile"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#334854"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-user align-text-bottom"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="7" r="4"></circle>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              </svg>
+              {{ "PROFILE" | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="requests-tab"
+              data-toggle="pill"
+              href="#requests"
+              role="tab"
+              aria-controls="requests"
+              aria-selected="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#334854"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-file align-text-bottom"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                ></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+              </svg>
+              {{ "REQUESTS" | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <app-profile></app-profile>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="requests"
+            role="tabpanel"
+            aria-labelledby="requests-tab"
+          >
+            <app-requests></app-requests>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

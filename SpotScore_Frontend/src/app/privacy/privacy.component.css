@@ -1,0 +1,52 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+h1, h2, p {
+    margin-bottom: 15px;
+    color: #334854;
+}
+
+
+.privacy {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border: 1px solid #ddd;
+    margin-top: 130px;
+    box-shadow: 3px 3px 5px 0px rgba(171, 171, 171, 1);
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.privacy h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.privacy p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.privacy .contact-info {
+    margin-top: 20px;
+    font-style: italic;
+    color: #888;
+}
+
+.privacy a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.privacy a:hover {
+    color: #0056b3;
+}

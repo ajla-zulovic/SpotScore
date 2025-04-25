@@ -1,0 +1,9 @@
+<div class="popup-overlay">
+  <div
+    class="popup-container"
+    [ngClass]="{ success: isSuccess, error: !isSuccess }"
+  >
+    <p>{{ message }}</p>
+    <button (click)="close()">OK</button>
+  </div>
+</div>

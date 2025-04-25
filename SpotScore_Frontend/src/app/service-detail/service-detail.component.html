@@ -1,0 +1,83 @@
+<!-- <div *ngIf="service; else loading">
+  <div class="service-details-container">
+    <div class="service-main-content">
+      <h1 class="service-title">{{ service.name }}</h1>
+      <img
+        [src]="getImageUrl(service.picture)"
+        alt="{{ service.name }}"
+        class="service-image"
+      />
+
+      <p class="service-description">{{ service.description }}</p>
+    </div>
+  </div>
+
+  <div class="service-rating">
+    <p *ngIf="service.averageRating; else noRating">
+      {{ "AVARAGE_RATING" | translate }}:
+      {{ service.averageRating | number : "1.1-1" }}
+    </p>
+    <ng-template #noRating>
+      <p>No ratings yet.</p>
+    </ng-template>
+  </div>
+
+  <div class="starsFeedback">
+    <app-rating-stars
+      [currentRating]="hasRated ? service.userRating : null"
+      [disabled]="hasRated"
+      (onRate)="submitRating($event)"
+    ></app-rating-stars>
+  </div>
+
+  <div *ngIf="isHotelOrRestaurant()" class="map-container">
+    <h3>{{ "LOCATION_MAP" | translate }}</h3>
+    <div id="map" style="height: 500px; width: 60%"></div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading details...</p>
+</ng-template> -->
+
+<div *ngIf="service; else loading">
+  <div class="service-details-container">
+    <div class="service-main-content">
+      <h1 class="service-title">{{ service.name }}</h1>
+      <img
+        [src]="getImageUrl(service.picture)"
+        alt="{{ service.name }}"
+        class="service-image"
+      />
+
+      <p class="service-description">{{ service.description }}</p>
+    </div>
+  </div>
+
+  <div class="service-rating">
+    <p *ngIf="service.averageRating; else noRating">
+      {{ "AVARAGE_RATING" | translate }}:
+      {{ service.averageRating | number : "1.1-1" }}
+    </p>
+    <ng-template #noRating>
+      <p>No ratings yet.</p>
+    </ng-template>
+  </div>
+
+  <div class="starsFeedback">
+    <app-rating-stars
+      [currentRating]="hasRated ? service.userRating : null"
+      [disabled]="hasRated"
+      (onRate)="submitRating($event)"
+    ></app-rating-stars>
+  </div>
+
+  <div *ngIf="isHotelOrRestaurant()" class="map-container">
+    <h3>{{ "LOCATION_MAP" | translate }}</h3>
+    <div id="map" style="height: 500px; width: 60%"></div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading details...</p>
+</ng-template>

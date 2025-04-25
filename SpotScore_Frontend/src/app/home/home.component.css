@@ -1,0 +1,165 @@
+.div-text{
+    text-align: center;
+    color: #334854;
+    font-size: 120%;
+    margin-top: 50px;
+}
+
+/*filtracija*/
+.navbar-new a {
+    color: #334854;
+    text-decoration: none;
+
+  }
+
+  .navbar-new li{
+    display: inline-block;
+    margin-right: 30px;
+  }
+  .navbar-new{
+    text-align: center;
+    margin-top: 80px;
+  }
+
+
+  /*Search tekst i button */
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  #searchInput {
+    padding: 15px;
+    width:40%;
+    border-radius: 20px;
+    border: none;
+  }
+
+  button {
+    padding: 8px;
+    width:80px ;
+    background-color: #3BC14A;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    left: -85px;
+    top: 7px;
+  }
+
+  input{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+  .filter-container{
+    margin:80px 0 20px 50px;
+    color: #334854;
+
+}
+ h2{
+    margin-left: 20px;
+}
+
+
+
+
+  /*OFFER*/
+  #section-offers {
+   
+    color: #000000;
+    padding: 30px 0;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.offer-main{
+  background-color: #f5f5f5cb;
+  width: 95%;
+  margin: auto;
+}
+
+.offer {
+    flex: 0 0 calc(30% - 20px);
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 3px 3px 5px 0px rgba(171, 171, 171, 1);
+    margin-bottom: 30px;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.offer img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+}
+
+.offer-details {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.offer-name {
+    font-weight: bold;
+}
+
+.offer-rating {
+    color: #666;
+}
+
+.offer:hover {
+    transform: scale(1.05);
+}
+
+/* za filtraciju restoran, hotel, knjige i filmovi*/
+.navbar-new a {
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.navbar-new a.active {
+  font-weight: bold;
+  color: #331832; 
+ 
+}
+
+p{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #D52941;
+}
+
+/*za zvijezdice*/
+.offer-rating {
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 8px;
+}
+
+.star {
+  color: #ccc; 
+}
+
+.star.full {
+  color: #ffc107;
+}
+
+.star.half {
+  background: linear-gradient(90deg, #ffc107 50%, #ccc 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+

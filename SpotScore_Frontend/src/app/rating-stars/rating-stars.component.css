@@ -1,0 +1,31 @@
+
+   .rating-stars {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .star {
+    font-size: 30px;
+    cursor: pointer;
+    color: lightgray;
+    margin-right: 5px;
+  }
+  
+  .star.selected,
+  .star.highlighted {
+    color: gold;
+  }
+  
+  .feedback {
+    font-size: 16px;
+    color: green;
+    margin-left: 10px;
+  }
+  
+  .login-prompt {
+    font-size: 14px;
+    color: red;
+    margin-left: 10px;
+  }
+  
