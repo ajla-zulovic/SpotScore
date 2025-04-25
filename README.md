@@ -1,3 +1,10 @@
+
+UserLogin : username: test_user
+        password: TestUser123!
+
+AdminLogin : username: JaneD
+             password: JaneDoe1976!
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
